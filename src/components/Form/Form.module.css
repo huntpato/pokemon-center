@@ -1,0 +1,143 @@
+.form_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 4rem 0.8rem 2rem;
+    background-color: var(--red);
+    color: whitesmoke;
+}
+
+.form_header div {
+    display: flex;
+    align-items: center;
+}
+
+.form_header h2{
+    color: whitesmoke;
+    font-family: "Pokemon", sans-serif;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+}
+  
+.form_header img {
+    width: 40px;
+    margin-right: 1.3rem;
+}
+
+.volver {
+    justify-self: end;
+    font-weight: 600;
+}
+
+/*********** formulario_ingreso *********/
+
+.formulario_ingreso{
+    color: var(--red);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    padding-bottom: 2rem;
+    /* margin-top: 2rem; */
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.formulario_ingreso h3 {
+    width: 100%;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.formulario_description{
+    color: var(--main-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0.5rem 0rem 2rem;
+}
+
+.formulario_ingreso .cuerpo_formulario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.cuerpo_formulario .inputs {
+    width: 40%;
+    margin-top: 1.5rem;
+}
+
+.nombre_seccion {
+    text-align: left;
+    margin-top: 1rem;
+    color: var(--main-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+  
+.nombre_seccion img {
+    width: 40px;
+    margin-right: 1rem;
+}
+
+/********** Detalle **********/
+
+.detalle_formulario {
+    width: 55%;
+    border: solid 0.5px rgb(161, 161, 161);
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 3px 3px lightgray;
+}
+  
+.detalle_formulario .encabezado {
+    padding: 0.8rem 0;
+    background-color: var(--red);
+    border-radius: 15px 15px 0px 0px;
+    color: whitesmoke;
+    margin-bottom: 2rem;
+}
+
+.detalle_formulario .encabezado h3 {
+    margin-top: 0;
+}
+
+.datos_cliente h4{
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+}
+
+.datos_cliente .fila {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 0px 1.5rem;
+    flex-wrap: wrap;
+    color: #ed5564;
+}
+
+.datos_cliente .fila p{
+    margin-bottom: 1rem;
+    
+    font-weight: 500;
+}
+  
+.boton_enviar {
+    padding: 0.6rem 2.5rem;
+    border-radius: 20px;
+    background-color: var(--red);
+    color: whitesmoke;
+    font-weight: 600;
+    border: none;
+    align-self: flex-end;
+}
+  
+.boton_enviar:hover {
+    background-color: whitesmoke;
+    color: var(--red);
+    cursor: pointer;
+}

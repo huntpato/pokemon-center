@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Pokemon";
+  src: url("./fonts/pokemon_solid-webfont.woff2") format("woff2"),
+    url("./fonts/pokemon_solid-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  text-align: center;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
