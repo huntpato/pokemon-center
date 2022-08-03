@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FormContext } from '../../context/FormContext';
 import styles from './Form.module.css';
 
 const Detalle = () => {
@@ -11,8 +12,8 @@ const Detalle = () => {
     boton_enviar
   } = styles;
 
-  // Aqui deberíamos obtener los datos del formulario para poder mostrarlo en
-  // la vista previa.
+  // obtener los datos del formulario para mostrarlo en la vista previa.
+  const { formData } = useContext(FormContext)
 
   return (
     <div className={detalle_formulario}>
@@ -22,15 +23,15 @@ const Detalle = () => {
       <section className={datos_cliente}>
         <h4>Datos del entrenador</h4>
         <div className={fila}>
-          <p>Nombre:</p>
-          <p>Apellido:</p>
-          <p>Email:</p>
+          <p>Nombre: {formData.nombre}</p>
+          <p>Apellido: {formData.apellido}</p>
+          <p>Email: {formData.email}</p>
         </div>
       </section>
       <section className={datos_cliente}>
         <h4>Datos del Pokémon</h4>
         <div className={fila}>
-          <p>Nombre:</p>
+          <p>Nombre: {formData.pokemon}</p>
         </div>
       </section>
       <button

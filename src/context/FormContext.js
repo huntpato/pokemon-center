@@ -3,22 +3,20 @@ import React, { createContext, useState } from 'react';
 export const FormContext = createContext([]);
 
 const FormContextProvider = ({ children }) => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    email: '',
-    pokemon: '',
-  });
+
+  const [formData, setFormData] = useState({});
+
 
   return (
     <>
-      <FormContextProvider
+      <FormContext.Provider
         value={{
           formData,
+          setFormData,
         }}
       >
         {children}
-      </FormContextProvider>
+      </FormContext.Provider>
     </>
   );
 };

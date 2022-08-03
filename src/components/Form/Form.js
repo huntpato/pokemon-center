@@ -9,13 +9,8 @@ import pikachu from '../../assets/pikachu.png';
 import styles from './Form.module.css';
 import FormContextProvider from '../../context/FormContext';
 
-// En este componente tenemos nuestro formulario y dentro de él
-// tenemos los componentes que necesitan consumir nuestro estado.
-// Recuerda cual es el paso que debemos tomar para que nuestros
-// componentes puedan consumir un estado global.
 
 const Form = () => {
-    
   const {
     form_header,
     volver,
@@ -40,33 +35,33 @@ const Form = () => {
       <div className={formulario_ingreso}>
         <h3>SOLICITUD DE ATENCIÓN</h3>
         <p className={formulario_description}>
-          Por favor, completa el formulario para que podamos atender a tu Pokémon
+          Por favor, completa el formulario para que podamos atender a tu
+          Pokémon
         </p>
-          <div className={cuerpo_formulario}>
-            {/*Si tan solo tuviesemos una manera de "encapsular" nuestros componentes para que puedan acceder al estado global.*/}
-        {/* <FormContextProvider> */}
-
-              <div className={inputs}>
-                <div>
-                  <p className={nombre_seccion}>
-                    <img src={entrenador} alt="entrenador" />
-                    <span>ENTRENADOR</span>
-                  </p>
-                  <Input name="nombre" label="Nombre" />
-                  <Input name="apellido" label="Apellido" />
-                  <Input name="email" label="Email" type="email" />
-                </div>
-                <div>
-                  <p className={nombre_seccion}>
-                    <img src={pikachu} alt="pikachu" />
-                    <span>POKÉMON</span>
-                  </p>
-                  <Input name="pokemon" label="Nombre" />
-                </div>
+        <div className={cuerpo_formulario}>
+          {/*Si tan solo tuviesemos una manera de "encapsular" nuestros componentes para que puedan acceder al estado global.*/}
+          <FormContextProvider>
+            <div className={inputs}>
+              <div>
+                <p className={nombre_seccion}>
+                  <img src={entrenador} alt="entrenador" />
+                  <span>ENTRENADOR</span>
+                </p>
+                <Input name="nombre" label="Nombre" />
+                <Input name="apellido" label="Apellido" />
+                <Input name="email" label="Email" type="email" />
               </div>
-              <Detalle />
-        {/* </FormContextProvider> */}
-          </div>
+              <div>
+                <p className={nombre_seccion}>
+                  <img src={pikachu} alt="pikachu" />
+                  <span>POKÉMON</span>
+                </p>
+                <Input name="pokemon" label="Nombre" />
+              </div>
+            </div>
+            <Detalle />
+          </FormContextProvider>
+        </div>
       </div>
     </>
   );
