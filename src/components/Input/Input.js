@@ -7,33 +7,32 @@ const Input = ({ name, label, type = 'text' }) => {
   const { input_contenedor } = styles;
 
   //acceder al estado global para poder obtener y actualizar los datos
-  const { formData, setFormData } = useContext(FormContext);
+  const { handleFormChange } = useContext(FormContext);
 
   //estado local para manejar el estado del input.
-  const [ inputData, setInputData ] = useState({})
+  const [ value, setValue ] = useState('')
 
   const onChange = (e) => {
-    setInputData({
-      ...inputData,
-      [e.target.name]: e.target.value
-    })
+    setValue( e.target.value )
   };
 
   const onBlur = (e) => {
     e.preventDefault();
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    handleFormChange(e, value)
   };
-
+  
+  // setFormData({
+  //   ...formData,
+  //   [e.target.name]: value
+  // })
+  
   return (
     <div className={input_contenedor}>
       <label htmlFor={name}>{label}</label>
       <input
         type={type}
         name={name}
-        value={inputData.name}
+        value={value}
         id={name}
         placeholder={name}
         onChange={onChange}

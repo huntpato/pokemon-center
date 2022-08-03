@@ -39,7 +39,6 @@ const Form = () => {
           Pokémon
         </p>
         <div className={cuerpo_formulario}>
-          {/*Si tan solo tuviesemos una manera de "encapsular" nuestros componentes para que puedan acceder al estado global.*/}
           <FormContextProvider>
             <div className={inputs}>
               <div>
