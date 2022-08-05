@@ -1,30 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FormContext } from '../../context/FormContext';
+
 import styles from './Input.module.css';
 
-const Input = ({ name, label, type = 'text' }) => {
+const Input = ({ name, label, type = 'text', action }) => {
 
   const { input_contenedor } = styles;
 
   //acceder al estado global para poder obtener y actualizar los datos
-  const { handleFormChange } = useContext(FormContext);
+  const { state, updateInputState } = useContext(FormContext);
 
-  //estado local para manejar el estado del input.
-  const [ value, setValue ] = useState('')
-
-  const onChange = (e) => {
-    setValue( e.target.value )
-  };
+  // estado local para manejar el estado del input.
+  // const [ value, setValue ] = useState('')
+  // const onChange = (e) => {
+  //   // setValue( e.target.value )
+  // };
 
   const onBlur = (e) => {
     e.preventDefault();
-    handleFormChange(e, value)
+    // handleFormChange(e, value)
+    updateInputState(e, action)
+
   };
-  
-  // setFormData({
-  //   ...formData,
-  //   [e.target.name]: value
-  // })
   
   return (
     <div className={input_contenedor}>
@@ -32,10 +29,10 @@ const Input = ({ name, label, type = 'text' }) => {
       <input
         type={type}
         name={name}
-        value={value}
+        value={state.name}
         id={name}
         placeholder={name}
-        onChange={onChange}
+        // onChange={onChange}
         onBlur={onBlur}
       />
     </div>
