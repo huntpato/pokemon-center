@@ -4,17 +4,12 @@ import { FormContext } from '../../context/FormContext';
 import styles from './Form.module.css';
 
 const Detalle = () => {
-
-  const {
-    detalle_formulario,
-    encabezado,
-    datos_cliente,
-    fila,
-    boton_enviar
-  } = styles;
+  const { detalle_formulario, encabezado, datos_cliente, fila, boton_enviar } = styles;
 
   // obtener los datos del formulario para mostrarlo en la vista previa.
-  const { state } = useContext(FormContext)
+  const { form } = useContext(FormContext);
+  const { nombre, apellido, email } = form?.entrenador;
+  const { pokemon, tipo, elemento, altura, edad } = form?.pokemon;
 
   return (
     <div className={detalle_formulario}>
@@ -24,19 +19,19 @@ const Detalle = () => {
       <section className={datos_cliente}>
         <h4>Datos del entrenador</h4>
         <div className={fila}>
-          <p>Nombre: {state.nombre}</p>
-          <p>Apellido: {state.apellido}</p>
-          <p>Email: {state.email}</p>
+          <p>Nombre: {nombre}</p>
+          <p>Apellido: {apellido}</p>
+          <p>Email: {email}</p>
         </div>
       </section>
       <section className={datos_cliente}>
         <h4>Datos del Pokémon</h4>
         <div className={fila}>
-          <p>Nombre: {state.pokemon}</p>
-          <p>Tipo: {state.tipo}</p>
-          <p>Elemento: {state.elemento}</p>
-          <p>Altura: {state.altura}</p>
-          <p>Edad: {state.edad}</p>
+          <p>Nombre: {pokemon}</p>
+          <p>Tipo: {tipo}</p>
+          <p>Elemento: {elemento}</p>
+          <p>Altura: {altura}</p>
+          <p>Edad: {edad}</p>
         </div>
       </section>
       <button

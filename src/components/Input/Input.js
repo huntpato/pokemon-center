@@ -1,39 +1,65 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FormContext } from '../../context/FormContext';
+import { types } from '../../reducer/actions';
 
 import styles from './Input.module.css';
 
-const Input = ({ name, label, type = 'text', action }) => {
-
+const Input = ({
+  name,
+  label,
+  type = 'text',
+  focusIn = false,
+  isPokemon = false,
+}) => {
+  
   const { input_contenedor } = styles;
+  const { ACTUALIZAR_ENTRENADOR, ACTUALIZAR_POKEMON } = types;
 
-  //acceder al estado global para poder obtener y actualizar los datos
-  const { state, updateInputState } = useContext(FormContext);
+  //ref inputfocus
+  const ref = useRef();
 
-  // estado local para manejar el estado del input.
-  // const [ value, setValue ] = useState('')
-  // const onChange = (e) => {
-  //   // setValue( e.target.value )
-  // };
+  //estado global context
+  const { handleInputBlur } = useContext(FormContext);
+
+  //estado local para manejar el estado del input.
+  const [inputValue, setInputValue] = useState('');
+
+  const onChange = (e) => setInputValue(e.target.value);
+
+  /**
+   * @description funcion que se ejecuta cuando el input pierde el foco,
+   * enviando el valor del input al contexto.
+   * @param {inputEvent} e 
+   */
 
   const onBlur = (e) => {
     e.preventDefault();
-    // handleFormChange(e, value)
-    updateInputState(e, action)
 
+    handleInputBlur( (isPokemon ? ACTUALIZAR_POKEMON : ACTUALIZAR_ENTRENADOR) , {
+      inputName: name,
+      value: inputValue,
+    });
   };
-  
+
+  //inputFocus
+  useEffect(() => {
+    if (ref.current && focusIn) {
+      ref.current.focus();
+    }
+  }, [focusIn]);
+
   return (
     <div className={input_contenedor}>
       <label htmlFor={name}>{label}</label>
       <input
         type={type}
         name={name}
-        value={state.name}
+        value={inputValue}
         id={name}
         placeholder={name}
-        // onChange={onChange}
+        onChange={onChange}
         onBlur={onBlur}
+        ref={ref}
       />
     </div>
   );

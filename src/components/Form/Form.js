@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { types } from '../../reducer/actions';
 
 import FormContextProvider from '../../context/FormContext';
 import Input from '../Input/Input';
@@ -20,17 +19,6 @@ const Form = () => {
     inputs,
     nombre_seccion,
   } = styles;
-
-  const {
-    ACTUALIZAR_ENTRENADOR,
-    ACTUALIZAR_POKEMON,
-    ACTUALIZAR_APELLIDO,
-    ACTUALIZAR_EMAIL,
-    ACTUALIZAR_TIPO,
-    ACTUALIZAR_ELEMENTO,
-    ACTUALIZAR_ALTURA,
-    ACTUALIZAR_EDAD,
-  } = types;
 
   return (
     <>
@@ -59,18 +47,17 @@ const Form = () => {
                 <Input
                   name="nombre"
                   label="Nombre"
-                  action={ACTUALIZAR_ENTRENADOR}
+                  focusIn={true}
+
                 />
                 <Input
                   name="apellido"
                   label="Apellido"
-                  action={ACTUALIZAR_APELLIDO}
                 />
                 <Input
                   name="email"
                   label="Email"
                   type="email"
-                  action={ACTUALIZAR_EMAIL}
                 />
               </div>
               <div>
@@ -81,24 +68,28 @@ const Form = () => {
                 <Input
                   name="pokemon"
                   label="Nombre"
-                  action={ACTUALIZAR_POKEMON}
+                  isPokemon={true}
                 />
-                <Input name="tipo" label="Tipo" action={ACTUALIZAR_TIPO} />
+                <Input 
+                  name="tipo"
+                  label="Tipo"
+                  isPokemon={true}
+                />
                 <Input
                   name="elemento"
                   label="Elemento"
-                  action={ACTUALIZAR_ELEMENTO}
+                  isPokemon={true}
                 />
                 <Input
                   name="altura"
                   label="Altura"
-                  action={ACTUALIZAR_ALTURA}
+                  isPokemon={true}
                 />
                 <Input
                   name="edad"
                   label="Edad"
                   type="number"
-                  action={ACTUALIZAR_EDAD}
+                  isPokemon={true}
                 />
               </div>
             </div>

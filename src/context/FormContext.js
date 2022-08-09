@@ -5,27 +5,32 @@ export const FormContext = createContext([]);
 
 const FormContextProvider = ({ children }) => {
 
-  // const [formData, setFormData] = useState({});
+  //estado useReducer
+  const [form, dispatch] = useReducer(reducer, initialState);
+
+  /**
+   * @description función que actualiza el estado del reducer
+   * @param {string} type - tipo de accion a ejecutar por el dispatch
+   * @param {object} inputValue - clave/valor del input
+   */
   
-  // const handleFormChange = (e, value) =>{
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: value
-  //   })
-  // }
+  const handleInputBlur = (type, inputValue) => {
+    const { inputName, value } = inputValue;
 
-  const [ state, dispatch ] = useReducer( reducer, initialState )
-
-  const updateInputState = (e, action) =>{
-    dispatch({ type: action, payload: e.target.value })
-  }
+    dispatch({
+      type,
+      payload: {
+        [inputName]: value,
+      },
+    });
+  };
 
   return (
     <>
       <FormContext.Provider
         value={{
-          state,
-          updateInputState
+          form,
+          handleInputBlur,
         }}
       >
         {children}
