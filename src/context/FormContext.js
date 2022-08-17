@@ -9,11 +9,11 @@ const FormContextProvider = ({ children }) => {
   const [form, dispatch] = useReducer(reducer, initialState);
 
   /**
-   * @description función que actualiza el estado del reducer
+   * @description función que recibe los parametros del formulario
+   * y dispara la acción de actualización.
    * @param {string} type - tipo de accion a ejecutar por el dispatch
-   * @param {object} inputValue - clave/valor del input
+   * @param {{[string]: string}} inputValue - clave/valor del input
    */
-  
   const handleInputBlur = (type, inputValue) => {
     const { inputName, value } = inputValue;
 

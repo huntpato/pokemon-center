@@ -3,10 +3,14 @@ import { FormContext } from '../../context/FormContext';
 
 import styles from './Form.module.css';
 
+/**
+ * Componente que muestra detalle del form completado
+ * @returns {JSX.Element}
+ */
+
 const Detalle = () => {
   const { detalle_formulario, encabezado, datos_cliente, fila, boton_enviar } = styles;
 
-  // obtener los datos del formulario para mostrarlo en la vista previa.
   const { form } = useContext(FormContext);
   const { nombre, apellido, email } = form?.entrenador;
   const { pokemon, tipo, elemento, altura, edad } = form?.pokemon;

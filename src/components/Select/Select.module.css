@@ -1,0 +1,19 @@
+.input_contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    width: 100%;
+}
+
+.input_contenedor label{
+    font-weight: 600;
+}
+  
+.input_contenedor select {
+    padding: 0.8rem 0.8rem;
+    width: 350px;
+    border-radius: 15px;
+    border: solid 0.5px rgb(161, 161, 161);
+    color:rgb(117, 117, 117);
+}

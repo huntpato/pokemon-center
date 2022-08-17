@@ -18,7 +18,16 @@ export const initialState = {
   },
 };
 
-//funcion reductora
+/**
+ * @description función reductora para el estado del formulario,
+ * que actualiza el estado en base a la acción dada.
+ * @param {initialState} state 
+ * @param {{
+ *  type: string,
+ *  payload: {[string]: string}}} action 
+ * @returns {initialState} 
+ */
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case ACTUALIZAR_ENTRENADOR:

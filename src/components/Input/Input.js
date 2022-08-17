@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { FormContext } from '../../context/FormContext';
 import { types } from '../../reducer/actions';
 
@@ -14,24 +15,25 @@ const Input = ({
   
   const { input_contenedor } = styles;
   const { ACTUALIZAR_ENTRENADOR, ACTUALIZAR_POKEMON } = types;
-
+  
   //ref inputfocus
-  const ref = useRef();
-
-  //estado global context
+  const ref = useRef(); 
+  
   const { handleInputBlur } = useContext(FormContext);
-
-  //estado local para manejar el estado del input.
+  
   const [inputValue, setInputValue] = useState('');
-
-  const onChange = (e) => setInputValue(e.target.value);
-
+  
   /**
-   * @description funcion que se ejecuta cuando el input pierde el foco,
-   * enviando el valor del input al contexto.
+   * Función que se ejecuta al cambiar el valor del input.
+   * @param {Event} e 
+   */
+  const onChange = (e) => setInputValue(e.target.value);
+  
+  /**
+   * @description funcion que se ejecuta cuando el input pierde el foco
    * @param {inputEvent} e 
    */
-
+  
   const onBlur = (e) => {
     e.preventDefault();
 
@@ -47,7 +49,7 @@ const Input = ({
       ref.current.focus();
     }
   }, [focusIn]);
-
+  
   return (
     <div className={input_contenedor}>
       <label htmlFor={name}>{label}</label>
@@ -64,5 +66,13 @@ const Input = ({
     </div>
   );
 };
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  focusIn: PropTypes.bool,
+  isPokemon: PropTypes.bool,
+}
 
 export default Input;
