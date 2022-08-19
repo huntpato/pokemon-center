@@ -1,19 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useMutation } from 'react-query';
+import { sendform } from '../../api/sendForm';
 import { FormContext } from '../../context/FormContext';
 
 import styles from './Form.module.css';
 
 /**
- * Componente que muestra detalle del form completado
+ * Componente que muestra detalle del form completado y envia datos a la API
  * @returns {JSX.Element}
  */
 
 const Detalle = () => {
-  const { detalle_formulario, encabezado, datos_cliente, fila, boton_enviar } = styles;
+  const { detalle_formulario, encabezado, datos_cliente, fila, boton_enviar } =
+    styles;
 
   const { form } = useContext(FormContext);
   const { nombre, apellido, email } = form?.entrenador;
   const { pokemon, tipo, elemento, altura, edad } = form?.pokemon;
+
+  const { data, isLoading, isError, mutate, isSuccess } = useMutation(sendform);
+
+  useEffect(() => {
+    if (isSuccess) {
+      alert(`formulario enviado correctamente, id ${data ? data?.id : ''}`);
+    } else if (isError) {
+      alert('Ha ocurrido un error al enviar el formulario');
+    }
+  }, [isSuccess, data, isError]);
 
   return (
     <div className={detalle_formulario}>
@@ -40,9 +53,11 @@ const Detalle = () => {
       </section>
       <button
         className={boton_enviar}
-        onClick={() => alert('Solicitud enviada :)')}
+        onClick={() => {
+          mutate(form);
+        }}
       >
-        Enviar solicitud
+        {isLoading ? 'Enviando...' : 'Enviar'}
       </button>
     </div>
   );
