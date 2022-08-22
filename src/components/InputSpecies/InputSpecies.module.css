@@ -1,0 +1,94 @@
+.input_contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.8rem 0;
+    width: 100%;
+}
+
+.input_contenedor p{
+    font-weight: 600;
+}
+
+.boton_seleccionar_especie {
+    padding: 0.6rem 2.5rem;
+    border-radius: 15px;
+    background-color: var(--red);
+    color: whitesmoke;
+    font-weight: 600;
+    border: none;
+    width: 350px;
+}
+  
+.boton_seleccionar_especie:hover {
+    background-color: white;
+    color: var(--red);
+    cursor: pointer;
+}
+
+.popup_especie {
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-color);
+    border-radius: 15px;
+    border: solid 0.5px rgb(161, 161, 161);
+    /* box-shadow: 3px 3px lightgray; */
+    padding: 30px;
+  }
+
+  .popup_especie h4{
+    color: white;
+  }
+
+  .contenedor_especies {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .botones_especie {
+    margin: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 15px;
+    background-color: var(--red);
+    color: whitesmoke;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+  }
+  
+  .botones_especie:hover {
+    background-color: whitesmoke;
+    color: var(--red);
+  }
+  
+  .paginador {
+    position: absolute;
+    bottom: 0.5rem;
+    right:0;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .boton_anterior,
+  .boton_siguiente {
+    margin: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 15px;
+    background-color: white;
+    color: var(--red);
+    cursor: pointer;
+    border: 1.8px solid var(--red);
+    font-weight: 600;
+  }
+  
+  .boton_anterior:hover,
+  .boton_siguiente:hover {
+    background-color: var(--red);
+    color: white;
+  }

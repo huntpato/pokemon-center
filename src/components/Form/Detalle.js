@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useMutation } from 'react-query';
-import { sendform } from '../../api/sendForm';
+import { sendForm } from '../../api/apiFunctions';
 import { FormContext } from '../../context/FormContext';
 
 import styles from './Form.module.css';
@@ -16,9 +16,9 @@ const Detalle = () => {
 
   const { form } = useContext(FormContext);
   const { nombre, apellido, email } = form?.entrenador;
-  const { pokemon, tipo, elemento, altura, edad } = form?.pokemon;
+  const { pokemon, tipo, elemento, altura, edad, especie } = form?.pokemon;
 
-  const { data, isLoading, isError, mutate, isSuccess } = useMutation(sendform);
+  const { data, isLoading, isError, mutate, isSuccess } = useMutation(sendForm);
 
   useEffect(() => {
     if (isSuccess) {
@@ -49,6 +49,7 @@ const Detalle = () => {
           <p>Elemento: {elemento}</p>
           <p>Altura: {altura}</p>
           <p>Edad: {edad}</p>
+          <p>Especie: {especie}</p>
         </div>
       </section>
       <button

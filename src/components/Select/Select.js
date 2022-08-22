@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { FormContext } from '../../context/FormContext';
 import { types } from '../../reducer/actions';
@@ -37,10 +37,10 @@ const Select = ({ name, label, options = [], disabled = false }) => {
 };
 
 Select.propTypes = {
-    name: propTypes.string.isRequired,
-    label: propTypes.string.isRequired,
-    options: propTypes.array,
-    disabled: propTypes.bool,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    options: PropTypes.array,
+    disabled: PropTypes.bool,
 };
 
 export default Select;

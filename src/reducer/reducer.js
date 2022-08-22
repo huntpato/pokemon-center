@@ -15,6 +15,7 @@ export const initialState = {
     elemento: '',
     altura: '',
     edad: '',
+    especie:'',
   },
 };
 

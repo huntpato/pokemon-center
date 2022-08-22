@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { getPokemonTypes } from '../../api/getPokemonTypes';
+import { getPokemonTypes } from '../../api/apiFunctions';
+
 
 import FormContextProvider from '../../context/FormContext';
 import Input from '../Input/Input';
@@ -11,6 +12,7 @@ import entrenador from '../../assets/entrenador.png';
 import pikachu from '../../assets/pikachu.png';
 import Select from '../Select/Select';
 import styles from './Form.module.css';
+import InputSpecies from '../InputSpecies/InputSpecies';
 
 /**
  * Componente del formulario
@@ -83,6 +85,7 @@ const Form = () => {
                   type="number"
                   isPokemon={true}
                 />
+                <InputSpecies name="especie" label="Especie"/>
               </div>
             </div>
             <Detalle />
