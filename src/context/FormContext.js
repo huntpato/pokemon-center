@@ -14,6 +14,7 @@ const FormContextProvider = ({ children }) => {
    * @param {string} type - tipo de accion a ejecutar por el dispatch
    * @param {{[string]: string}} inputValue - clave/valor del input
    */
+  
   const handleInputBlur = (type, inputValue) => {
     const { inputName, value } = inputValue;
 
